@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Animals {
+public class Animals implements BasicInterface {
     public String name;
     public int id;
 
@@ -22,13 +22,24 @@ public class Animals {
 
      ///where the user is able to list all the animals using query
 
-    public static List<Animals> all(){
-       try(Connection connection = DB.sql2o.open()){
-           String sql = "SELECT * FROM animals;";
-           return connection.createQuery(sql)
-                   .executeAndFetch(Animals.class);
-       }
+    @Override
+    public boolean equals(Object otherAnimal) {
+        if(!(otherAnimal instanceof Animal)) {
+            return false;
+        } else {
+            Animals newAnimal = (Animals) otherAnimal;
+            return this.getName().equals(newAnimal.getName());
+        }
     }
 
+    public void save() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO animals (name) VALUES (:name);";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("name", this.name)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
 
 }
