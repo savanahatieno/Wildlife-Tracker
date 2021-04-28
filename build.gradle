@@ -4,6 +4,7 @@ plugins {
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+mainClassName = "App"
 
 sourceCompatibilty = 1.8
 
