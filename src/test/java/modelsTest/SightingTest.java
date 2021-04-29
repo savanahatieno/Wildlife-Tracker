@@ -25,5 +25,19 @@ public class SightingTest {
         assertEquals(true, testSighting instanceof Sighting);
     }
 
+//    @Test
+//    public void all_returnsAllInstancesOfSighting_true() {
+//        Animals testAnimals = new Animals("Deer");
+//        testAnimals.save();
+//        Sighting testSighting = new Sighting (testAnimals.getId(), "45.472428, -121.946466", "Ranger Avery");
+//        testSighting.save();
+//        Animals secondTestAnimal = new Animals("Badger");
+//        secondTestAnimal.save();
+//        Sighting secondTestSighting = new Sighting (testAnimals.getId(), "45.472428, -121.946466", "Ranger Reese");
+//        secondTestSighting.save();
+//        assertEquals(true, Sighting.all().get(0).equals(testSighting));
+//        assertEquals(true, Sighting.all().get(1).equals(secondTestSighting));
+//    }
+
 
 }
