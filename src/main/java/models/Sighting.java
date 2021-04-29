@@ -64,7 +64,7 @@ public class Sighting {
 
     //Finding ids
 
-    public static Sighting find(int id) {
+    public Sighting find(int id) {
         try (Connection connection = DB.sql2o.open()) {
             String sql = "SELECT * FROM sighting WHERE id=:id;";
             Sighting sighting = connection.createQuery(sql)
@@ -75,10 +75,23 @@ public class Sighting {
             return null;
         }
 
-        //Saving
 
 
+        @Override
+        public void save() {
+            try(Connection con = DB.sql2o.open()) {
+                String sql = "INSERT INTO sightings (animals_id, location, rangers_name, date) VALUES (:animals_id, :location, :rangers_name);";
+                this.id = (int) con.createQuery(sql, true)
+                        .addParameter("animal_id", this.animals_id)
+                        .addParameter("location", this.location)
+                        .addParameter("rangers_name", this.rangers_name)
+                        .throwOnMappingFailure(false)
+                        .executeUpdate()
+                        .getKey();
+            }
+        }
     }
 }
+
 
 
