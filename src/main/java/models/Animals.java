@@ -1,11 +1,12 @@
 package models;
+import models.BasicInterface;
 
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Animals implements BasicInterface {
+public class Animals  {
     public String name;
     public int id;
 
@@ -24,7 +25,7 @@ public class Animals implements BasicInterface {
 
     @Override
     public boolean equals(Object otherAnimal) {
-        if(!(otherAnimal instanceof Animal)) {
+        if(!(otherAnimal instanceof Animals)) {
             return false;
         } else {
             Animals newAnimal = (Animals) otherAnimal;
@@ -32,14 +33,19 @@ public class Animals implements BasicInterface {
         }
     }
 
-    public void save() {
-        try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (name) VALUES (:name);";
-            this.id = (int) con.createQuery(sql, true)
-                    .addParameter("name", this.name)
-                    .executeUpdate()
-                    .getKey();
-        }
-    }
+//    @Override
+//    public void save() {
+//
+//    }
+
+//    public void save() {
+//        try(Connection con = DB..open()) {
+//            String sql = "INSERT INTO animals (name) VALUES (:name);";
+//            this.id = (int) con.createQuery(sql, true)
+//                    .addParameter("name", this.name)
+//                    .executeUpdate()
+//                    .getKey();
+//        }
+//    }
 
 }
