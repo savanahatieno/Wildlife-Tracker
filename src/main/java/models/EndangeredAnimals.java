@@ -1,5 +1,7 @@
 package models;
 
+import javax.swing.border.EmptyBorder;
+
 public class EndangeredAnimals {
     public String name ;
     public int id;
@@ -27,4 +29,19 @@ public class EndangeredAnimals {
     public int getId (){
         return id;
     }
+
+
+    //Added an override to avoid duplicate errors
+    @Override
+    public boolean equals(Object otherEndangeredAnimals) {
+        if(!(otherEndangeredAnimals instanceof EndangeredAnimals)) {
+            return false;
+        } else {
+            EndangeredAnimals newEndangeredAnimals = (EndangeredAnimals) otherEndangeredAnimals;
+            return this.getName().equals(newEndangeredAnimals.getName())
+                    && this.getHealth().equals(newEndangeredAnimals.getHealth())
+                    && this.getAge_type().equals(newEndangeredAnimals.getAge_type());
+        }
+    }
+
 }
