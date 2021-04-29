@@ -20,19 +20,17 @@ public class App {
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
+
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
         String main = "templates/layout.hbs";
 
+       //MAIN PAGE
+        get("/", (request, response) ->{
+            return new ModelAndView(new HashMap(), "index.hbs");
+        } , new HandlebarsTemplateEngine());
 
-//        get("/", (request, response) -> {
-//            Map <String, Object> model = new HashMap<>());
-//            model.put("Animals", Animals.all());
-//            model.put("endangeredAnimals", EndageredAnimals.all());
-//            model.put("sightings", Sighting.all());
-//            model.put("template", "templates/index.hbs");
-//            return new ModelAndView(model, modelAndView());
-//        }, new HandlebarsTemplateEngine());
+
     }
 }
