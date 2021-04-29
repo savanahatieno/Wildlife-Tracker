@@ -34,11 +34,11 @@ public class Animals  {
     }
 
 
-
+    //where one can enter details and is able to save/update it
     public void save() {
         try(Connection connection = DB.sql2o.open()) {
             String sql = "INSERT INTO animals (name) VALUES (:name);";
-            this.id = (int) con.createQuery(sql, true)
+            this.id = (int) connection.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .executeUpdate()
                     .getKey();
@@ -51,6 +51,17 @@ public class Animals  {
            String sql = "SELECT * FROM animlas;";
            return connection.createQuery(sql)
                    .executeAndFetch(Animals.class);
+       }
+    }
+
+    //where one can find an animal using their id
+    public static Animals find(int id) {
+       try(Connection connection = DB.sql2o.open()) {
+           String sql = "SELECT * FROM animals WHERE id=:id;";
+           Animals animals = connection.createQuery(sql)
+                   .addParameter("id", id)
+                   .executeAndFetchFirst(Animals.class);
+               return animals;
        }
     }
 
