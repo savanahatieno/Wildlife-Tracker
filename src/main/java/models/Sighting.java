@@ -75,23 +75,29 @@ public class Sighting {
             return null;
         }
 
-
-
-//        @Override
+//
 //        public void save() {
-//            try(Connection con = DB.sql2o.open()) {
-//                String sql = "INSERT INTO sightings (animals_id, location, rangers_name, date) VALUES (:animals_id, :location, :rangers_name);";
-//                this.id = (int) con.createQuery(sql, true)
-//                        .addParameter("animal_id", this.animals_id)
-//                        .addParameter("location", this.location)
-//                        .addParameter("rangers_name", this.rangers_name)
-//                        .throwOnMappingFailure(false)
+//            try(Connection connection = DB.sql2o.open()) {
+//                String sql = "INSERT INTO animals (name) VALUES (:name);";
+//                Sighting sighting = connection.createQuery(sql)
+//                this.id = (int) connection.createQuery(sql, true)
+//                        .addParameter("name", this.rangers_name)
 //                        .executeUpdate()
 //                        .getKey();
 //            }
 //        }
+
+
+
+
+
+
+    }
+
+    public void save() {
     }
 }
+
 
 
 
