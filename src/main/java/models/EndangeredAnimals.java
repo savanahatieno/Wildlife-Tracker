@@ -56,7 +56,7 @@ public class EndangeredAnimals {
         }
     }
 
-    //where one can find an animal using their id
+    //where one can find an endangeredanimals using their id
     public static EndangeredAnimals find(int id) {
         try(Connection connection = DB.sql2o.open()) {
             String sql = "SELECT * FROM endangered_animals WHERE id=:id;";
