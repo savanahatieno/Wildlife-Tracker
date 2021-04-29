@@ -1,3 +1,8 @@
+import models.Animals;
+import models.EndageredAnimals;
+import models.Ranger;
+import models.Sighting;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +23,16 @@ public class App {
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
-        String main = "templates/index.hbs";
+        String main = "templates/layout.hbs";
+
+
+        get("/", (request, response) -> {
+            Map <String, Object> model = new HashMap<>());
+            model.put("Animals", Animals.all());
+            model.put("endangeredAnimals", EndageredAnimals.all());
+            model.put("sightings", Sighting.all());
+            model.put("template", "templates/index.hbs");
+            return new ModelAndView(model, modelAndView());
+        }, new HandlebarsTemplateEngine());
     }
 }
