@@ -14,4 +14,27 @@ public class Sighting {
    private int animals_id;
    private int id;
 
+   public Sighting(String rangers_name, String location, int animals_id) {
+       this.rangers_name = rangers_name;
+       this.location = location;
+       this.animals_id = animals_id;
+       this.id = animals_id;
+     }
+
+    public String getRangersName() {
+        return rangers_name;
+    }
+    public String getLocation(){
+       return location;
+    }
+    public int getAnimals_id(){
+       return animals_id;
+    }
+    public int getId(){
+       return id;
+    }
+
+
+   }
+
 }
