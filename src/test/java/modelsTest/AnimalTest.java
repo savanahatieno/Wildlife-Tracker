@@ -8,6 +8,7 @@ import java.util.Arrays;
 import org.junit.Assert.*;
 import org.sql2o.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AnimalTest {
 
@@ -18,4 +19,16 @@ public class AnimalTest {
         assertEquals(true, testAnimals instanceof Animals);
     }
 
+    @Test
+    public void getName_animalsInstaniatesWith_Deer() {
+        Animals testAnimals = new Animals("Deer", 4);
+        assertEquals("Lion", testAnimals.getName());
+    }
+
+    @Test
+    public void equalReturnsTrue_IfNameIsTheSame_false() {
+        Animals firstAnimals = new Animals("Lion",4);
+        Animals anotherAnimals = new Animals ("Deer",2);
+        assertTrue( firstAnimals.equals(anotherAnimals));
+    }
 }
