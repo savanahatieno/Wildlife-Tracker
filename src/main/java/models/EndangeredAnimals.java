@@ -92,7 +92,15 @@ public class EndangeredAnimals {
         }
     }
 
-
+    public void updateAge_Type (String age_type){
+        try (Connection connection = DB.sql2o.open()) {
+            String sql = "UPDATE endangered_animals SET age=:age WHERE id=:id;";
+            connection.createQuery(sql)
+                    .addParameter("age_type", age_type)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
 
 
     //where the user can update the database
