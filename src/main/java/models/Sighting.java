@@ -77,19 +77,19 @@ public class Sighting {
 
 
 
-        @Override
-        public void save() {
-            try(Connection con = DB.sql2o.open()) {
-                String sql = "INSERT INTO sightings (animals_id, location, rangers_name, date) VALUES (:animals_id, :location, :rangers_name);";
-                this.id = (int) con.createQuery(sql, true)
-                        .addParameter("animal_id", this.animals_id)
-                        .addParameter("location", this.location)
-                        .addParameter("rangers_name", this.rangers_name)
-                        .throwOnMappingFailure(false)
-                        .executeUpdate()
-                        .getKey();
-            }
-        }
+//        @Override
+//        public void save() {
+//            try(Connection con = DB.sql2o.open()) {
+//                String sql = "INSERT INTO sightings (animals_id, location, rangers_name, date) VALUES (:animals_id, :location, :rangers_name);";
+//                this.id = (int) con.createQuery(sql, true)
+//                        .addParameter("animal_id", this.animals_id)
+//                        .addParameter("location", this.location)
+//                        .addParameter("rangers_name", this.rangers_name)
+//                        .throwOnMappingFailure(false)
+//                        .executeUpdate()
+//                        .getKey();
+//            }
+//        }
     }
 }
 

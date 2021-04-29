@@ -37,5 +37,12 @@ public class App {
         } , new HandlebarsTemplateEngine());
 
 
+        //Adding new animals
+        get("/aniamls/new", (request, response) -> {
+            Map <String, Object> model = new HashMap<String, Object>();
+            model.put("template", "templates/animals_")
+        });
+
+
     }
 }
