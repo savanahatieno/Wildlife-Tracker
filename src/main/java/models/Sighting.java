@@ -34,7 +34,26 @@ public class Sighting {
        return id;
     }
 
+    //OVERRIDE
 
-   }
+    @Override
+    public boolean equals(Object otherSIghtings){
+       if ((otherSIghtings instanceof  Sighting)){
+           return false;
+       }else{
+           Sighting newSighting = (Sighting) otherSIghtings;
+           return this.getAnimals_id() == (newSighting.getAnimals_id())
+                   && this.getLocation().equals(newSighting.getLocation())
+                   && this.getRangersName().equals(newSighting.getRangersName());
+       }
+    }
+
+
+
+
+
+
 
 }
+
+
