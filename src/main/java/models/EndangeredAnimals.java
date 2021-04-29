@@ -1,6 +1,7 @@
 package models;
 
 import org.sql2o.Connection;
+import sun.util.resources.ext.CalendarData_da;
 
 import javax.swing.border.EmptyBorder;
 import java.util.List;
@@ -79,9 +80,23 @@ public class EndangeredAnimals {
                     .getKey();
         }
     }
+    //UPDATES TO THE DATABASE
+
+    public void updateHealth (String health){
+        try (Connection connection = DB.sql2o.open()){
+            String sql = "UPDATE endangered_animals SET health=:health WHERE id=:id;";
+            connection.createQuery(sql)
+                    .addParameter("id", id)
+                    .addParameter("health", health)
+                    .executeUpdate();
+        }
+    }
+
+
+
 
     //where the user can update the database
-    public void updateTheNames (String name) {
+    public void updateEndangeredNames (String name) {
         try(Connection connection = DB.sql2o.open()){
             String sql = "UPDATE endangered_animals SET name=:name WHERE id=:id;";
             connection.createQuery(sql)
