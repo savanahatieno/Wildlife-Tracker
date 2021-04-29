@@ -1,16 +1,17 @@
 package models;
 
 
-import jdk.internal.jimage.BasicImageReader;
+//import jdk.internal.jimage.BasicImageReader;
+import org.sql2o.*;
+//import org.sql2o.Connection;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.DriverManager;
+//import java.sql.SQLException;
+//import java.sql.DriverManager;
 
 public class DB {
 
 
-    public static void main (String[] args)  {
+//    public static void main(String[] args) {
 //        String jdbcURL = "jdbc:postgresql://localhost:5432/wildlife_tracker";
 //        String username = "postgres";
 //        String password = "5880";
@@ -26,9 +27,8 @@ public class DB {
 //            e.printStackTrace();
 //        }
 //////Tried another method jdbc driver was not working
+public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker", "postgres",  "5880");
 
-
-
-    }
 
 }
+

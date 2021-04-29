@@ -21,7 +21,7 @@ public class Animals  {
        return id;
      }
 
-     ///where the user is able to list all the animals using query
+
 
     @Override
     public boolean equals(Object otherAnimal) {
@@ -33,19 +33,27 @@ public class Animals  {
         }
     }
 
-//    @Override
-//    public void save() {
-//
-//    }
 
-//    public void save() {
-//        try(Connection con = DB..open()) {
-//            String sql = "INSERT INTO animals (name) VALUES (:name);";
-//            this.id = (int) con.createQuery(sql, true)
-//                    .addParameter("name", this.name)
-//                    .executeUpdate()
-//                    .getKey();
-//        }
-//    }
+
+    public void save() {
+        try(Connection connection = DB.sql2o.open()) {
+            String sql = "INSERT INTO animals (name) VALUES (:name);";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("name", this.name)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
+
+    //where one can view all the selected animals
+    public static  List<Animals> all() {
+       try(Connection connection = DB.sql2o.open()) {
+           String sql = "SELECT * FROM animlas;";
+           return connection.createQuery(sql)
+                   .executeAndFetch(Animals.class);
+       }
+    }
+
+
 
 }

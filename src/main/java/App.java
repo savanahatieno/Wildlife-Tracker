@@ -26,13 +26,13 @@ public class App {
         String main = "templates/layout.hbs";
 
 
-        get("/", (request, response) -> {
-            Map <String, Object> model = new HashMap<>());
-            model.put("Animals", Animals.all());
-            model.put("endangeredAnimals", EndageredAnimals.all());
-            model.put("sightings", Sighting.all());
-            model.put("template", "templates/index.hbs");
-            return new ModelAndView(model, modelAndView());
-        }, new HandlebarsTemplateEngine());
+//        get("/", (request, response) -> {
+//            Map <String, Object> model = new HashMap<>());
+//            model.put("Animals", Animals.all());
+//            model.put("endangeredAnimals", EndageredAnimals.all());
+//            model.put("sightings", Sighting.all());
+//            model.put("template", "templates/index.hbs");
+//            return new ModelAndView(model, modelAndView());
+//        }, new HandlebarsTemplateEngine());
     }
 }
