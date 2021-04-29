@@ -1,5 +1,5 @@
 import models.Animals;
-import models.EndageredAnimals;
+import models.EndangeredAnimals;
 import models.Ranger;
 import models.Sighting;
 
@@ -24,11 +24,16 @@ public class App {
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
-        String main = "templates/layout.hbs";
+        String layout = "templates/layout.hbs";
 
        //MAIN PAGE
         get("/", (request, response) ->{
-            return new ModelAndView(new HashMap(), "index.hbs");
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("animals", Animals.all());
+            model.put("endangeredAnimals", EndangeredAnimals.all());
+            model.put("sightings", Sighting.all());
+            model.put("template", "templates/index.hbs");
+            return new ModelAndView(model , layout);
         } , new HandlebarsTemplateEngine());
 
 

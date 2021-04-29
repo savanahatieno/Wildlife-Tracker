@@ -1,5 +1,6 @@
 package modelsTest;
 
+import models.Animals;
 import org.junit.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,9 +10,14 @@ import static org.junit.Assert.assertEquals;
 
 public class AnimalTest {
 
-
-
 //
+//    @Test
+//    public void animals_instatiantesCorrectly_false() {
+//        Animals testAnimals = new Animals();
+//        assertEquals(true, testAnimals instanceof  Animals);
+//    }
+
+    //
 //    @Test
 //    public void animal_instatiatesCorrectly_false() {
 //        Animals testAnimal = new AnimalTest("");
