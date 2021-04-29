@@ -3,9 +3,7 @@ package models;
 import org.sql2o.*;
 import java.util.Arrays;
 import java.util.ArrayList;
-
-
-
+import java.util.List;
 
 
 public class Sighting {
@@ -48,6 +46,18 @@ public class Sighting {
        }
     }
 
+    //WHere user can see all list of sightings
+
+    public static List<Sighting> all(){
+       try (Connection connection = DB.sql2o.open()) {
+           String sql = "SELECT * FROM sightings;";
+           return connection.createQuery(sql)
+                   //Added mappings to ignore fails during lisitng columns
+                   .throwOnMappingFailure(false)
+
+                   .executeAndFetch(Sighting.class);
+       }
+    }
 
 
 
