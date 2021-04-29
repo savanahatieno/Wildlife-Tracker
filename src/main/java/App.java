@@ -31,7 +31,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("animals", Animals.all());
             model.put("endangeredAnimals", EndangeredAnimals.all());
-            model.put("sightings", Sighting.all());
+//            model.put("sightings", Sighting.all());
             model.put("template", "templates/index.hbs");
             return new ModelAndView(model , layout);
         } , new HandlebarsTemplateEngine());

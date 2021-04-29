@@ -1,6 +1,7 @@
 package modelsTest;
 
 import models.Animals;
+import models.EndangeredAnimals;
 import org.junit.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,17 +11,11 @@ import static org.junit.Assert.assertEquals;
 
 public class AnimalTest {
 
-//
-//    @Test
-//    public void animals_instatiantesCorrectly_false() {
-//        Animals testAnimals = new Animals();
-//        assertEquals(true, testAnimals instanceof  Animals);
-//    }
 
-    //
-//    @Test
-//    public void animal_instatiatesCorrectly_false() {
-//        Animals testAnimal = new AnimalTest("");
-//        assertEquals(true, testAnimal instanceof  Animals);
-//    }
+    @Test
+    public void endangeredAnimal_instantiatesCorrectly_true() {
+        Animals testAnimals = new Animals("Lion",3);
+        assertEquals(true, testAnimals instanceof Animals);
+    }
+
 }
