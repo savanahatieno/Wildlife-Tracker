@@ -12,12 +12,22 @@ import static org.junit.Assert.*;
 
 
 public class EndangeredAnimalTest {
-//    @Rule
-//    public DatabaseRule database = new DatabaseRule();
+
 
     @Test
     public void endangeredAnimal_instantiatesCorrectly_true() {
-        EndangeredAnimals testEndangeredAnimals = new EndangeredAnimals("Fox", "Healthy", "Young");
+        EndangeredAnimals testEndangeredAnimals = new EndangeredAnimals("Deer", "Healthy", "Young");
         assertEquals(true, testEndangeredAnimals instanceof EndangeredAnimals);
+    }
+
+    //Test saving object
+
+    @Test
+    public void save_assignsTheObjectAndUpdatesToDatabase() {
+        EndangeredAnimals testEndangeredAnimals = new EndangeredAnimals("Deer", "Sick", "Adult");
+        testEndangeredAnimals.save();
+        EndangeredAnimals savedEndangeredAnimal = EndangeredAnimals.all().get(0);
+        assertEquals(testEndangeredAnimals.getId(), savedEndangeredAnimal.getId());
+
     }
 }
