@@ -1,0 +1,24 @@
+{{#partial "content"}}
+
+    <div class = "row">
+        <div class="col-sm-6">
+            <h3 style="text-align:center">Endangered Animals</h3>
+            #if ($endangeredAnimals.size() == 0)
+            <a href="/endangeredanimals/new">Add Animal to a Sighting</a>
+            #else
+            #foreach ($endangeredAnimal in $endangeredAnimals)
+            <div class="card">
+                    <h4>$endangeredAnimals.getName()</h4>
+                    <h4>$endangeredAnimals.getId()</h4>
+                    <h4>$endangeredAnimals.getSightings().size() Reported Sighting(s)</h4>
+                    <a href="/endangered_animal/$endangeredAnimal.getId()">
+                        Learn more
+                    </a>
+            </div>
+            #end
+            #end
+        </div>
+    </div>
+
+{{/partial}}
+{{>nav.hbs}}
