@@ -44,6 +44,11 @@ public class App {
             return new ModelAndView(new HashMap(), "animals-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //Animals
+        get("/animals", (request, response) -> {
+            return new ModelAndView(new HashMap(), "animals.hbs");
+        }, new HandlebarsTemplateEngine());
+
 //
 //        get("/", (request, response) -> {
 //            Map<String, Object> model = new HashMap<String, Object>();
