@@ -39,6 +39,11 @@ public class App {
             return new ModelAndView(new HashMap(), "endangeredanimals.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/endangeredanimals/new", (request, response) -> {
+            return new ModelAndView(new HashMap(), "endangered-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
         //Animals
         get("/animals/new", (request, response) -> {
             return new ModelAndView(new HashMap(), "animals-form.hbs");
