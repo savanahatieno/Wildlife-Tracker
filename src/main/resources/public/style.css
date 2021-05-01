@@ -16,11 +16,13 @@
 /*NAVBAR*/
 .wrapper{
     background-color: blanchedalmond;
+    height: 90px;
 }
+
 
 nav{
     display: flex;
-    padding: 2% 6%;
+    padding: 1% 6% 1%;
     justify-content: space-between;
     align-items: center;
 }
