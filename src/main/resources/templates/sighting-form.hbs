@@ -1,0 +1,40 @@
+
+{{#partial "content"}}
+
+    <section class = "landing">
+        <div class = "container">
+            <form action="/sighting/new" method="post" >
+                <h1>Record Sighting </h1>
+                <div class = "form-group">
+                    <label for="">Animal ID: </label>
+                    <input type="number" class = " form-control" required>
+                </div>
+                <div class = "form-group">
+                    <label for="">Rangers Name:</label>
+                    <select class = " form-control" name="ranger_name" required multiple>
+                        <option value="ranger_name">R. Luke</option>
+                        <option value="ranger_name">R. Simon</option>
+                        <option value="ranger_name">R. Savanah</option>
+                        <option value="ranger_name">R. Anne</option>
+                        <option value="ranger_name">R. Tim</option>
+                        <option value="ranger_name">R. Shane</option>
+                        <option value="ranger_name">R. Who</option>
+                    </select>
+                </div>
+                <div class = "form-group">
+                    <label for="">Location :</label>
+                    <select class = " form-control" name="location"  required multiple>
+                        <option value="location">At the Ranch</option>
+                        <option value="location">At the uncut trees</option>
+                        <option value="location">Near the River</option>
+                        <option value="location">At the harbour</option>
+                    </select>
+                </div>
+                <a  href="/templates/endangeredanimals.hbs" class="btn"></a>
+            </form>
+        </div>
+    </section>
+
+
+{{/partial}}
+{{>nav.hbs}}

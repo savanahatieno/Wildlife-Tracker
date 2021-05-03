@@ -27,7 +27,7 @@ public class DB {
 //            e.printStackTrace();
 //        }
 //////Tried another method jdbc driver was not working
-public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker", "postgres",  "5880");
+public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker", "postgres",  "9090");
 
 
 }
