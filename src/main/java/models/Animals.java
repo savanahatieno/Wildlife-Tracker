@@ -16,7 +16,8 @@ public class Animals  {
     this.id = id;
     }
 
-
+    public Animals(String badger) {
+    }
 
 
     public String getName(){
