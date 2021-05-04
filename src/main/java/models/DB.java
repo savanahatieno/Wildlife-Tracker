@@ -27,8 +27,9 @@ public class DB {
 //            e.printStackTrace();
 //        }
 //////Tried another method jdbc driver was not working
-public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker", "postgres",  "9090");
-
+//public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker", "postgres",  "9090");
+    private static String connectionString = "jdbc:postgresql://ec2-54-196-33-23.compute-1.amazonaws.com:5432/d2tc3di4ni9ch9"; //!
+    public static Sql2o sql2o = new Sql2o(connectionString, "tmpgthhaigflhe", "de5d724a312a2cae04a1f99a38c65ac7820708f2cfcb86f1716f8d14c6b2736b"); //!
 
 }
 

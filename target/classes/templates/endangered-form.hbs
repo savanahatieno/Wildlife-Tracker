@@ -1,0 +1,39 @@
+
+{{#partial "content"}}
+
+    <section class = "landing">
+        <div class = "container">
+            <form action="/animals/new" method="post" >
+                <h1>Fill in</h1>
+                <div class = "form-group">
+                    <label for="">ID No : </label>
+                    <input type="text" class = " form-control" required>
+                </div>
+                <div class = "form-group">
+                    <label for="">Animal Name :</label>
+                    <input type="text" class = " form-control" required>
+                </div>
+                <div class = "form-group">
+                    <label for="">Health :</label>
+                    <select class = " form-control" name="health" required multiple>
+                        <option value="Sick">Sick</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="Recovered">Recovered</option>
+                    </select>
+                </div>
+                <div class = "form-group">
+                    <label for="">Age Type :</label>
+                    <select class = " form-control" name="age_type"  required multiple>
+                        <option value="Old">Old</option>
+                        <option value="Young">Young</option>
+                        <option value="Adult">Adult</option>
+                    </select>
+                </div>
+                <a  href="/templates/endangeredanimals.hbs" class="btn"></a>
+            </form>
+        </div>
+    </section>
+
+
+{{/partial}}
+{{>nav.hbs}}
